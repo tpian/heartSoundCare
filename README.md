@@ -13,8 +13,11 @@
 
 &emsp;&emsp;一个基础心音周期由 S1、收缩期、S2 以及舒张期组成，相应的 PCG 如图 1 所示。
 ![心音周期](/figure/PCG.png)
-
-<center>图1 心音周期示意图</center>
+<div align='center'>
+  <font size=12>
+    图1 心音周期示意图
+  </font>
+</div>
 
 <br>
 
@@ -26,13 +29,21 @@
 ### 数据集
 
 &emsp;&emsp;2016 心音挑战赛的开源数据集。【数据集链接】：https://www.physionet.org/content/challenge-2016/1.0.0/
+
+
 ![心音分割数据集](/figure/SegDataset.png)
 
 ### 方法
 
-![心音分割方法框图](/figure/SegMethod.png)
+<div align='center'><img src=/figure/SegMethod.png width=80%></div>
+<div align='center'>
+  <font size=12>
+    图2 心音分割方法框图
+  </font>
+</div>
 
-<center>图2 心音分割方法框图</center>
+<br/>
+<br/>
 &emsp;&emsp;主要步骤：
 
 - 预处理：裁剪、滤波
@@ -40,10 +51,15 @@
 - 特征降维：主成分分析
 - 网络训练：对异常样本进行过采样，平衡数据集中正常样本和异常样本的比例；使用交叉熵损失函数，网络结构如图 3 所示。
 - 结果译码： Viterbi 算法，校正不合理的状态变化，如 S2->收缩期等。
-  <br>
-  ![网络结构](/figure/SegNet.png)
 
-<center>图3 心音分割网络结构</center>
+<br/>
+<br/>
+<div align='center'><img src=/figure/SegNet.png width=80%></div>
+<div align='center'>
+  <font size=12>
+    图3 心音分割网络结构
+  </font>
+</div>
 
 ### 结果
 
@@ -62,11 +78,14 @@ c. 能实现 4 种基本心音状态的事件检测，F1 值均在 96%以上，�
 
 ### 方法
 
-![心脏杂音检测方法框图](/figure/DetecMethod.png)
+<div align='center'><img src=/figure/DetecMethod.png width=80%></div>
+<div align='center'>
+  <font size=12>
+    图4 心脏杂音检测方法框图
+  </font>
+</div>
 
-<center>图4 心脏杂音检测方法框图</center>
-
-<br>
+<br/>
 
 主要步骤：
 
@@ -82,18 +101,24 @@ c. 能实现 4 种基本心音状态的事件检测，F1 值均在 96%以上，�
 
 a. Stage1 F1 值达到 72.94%，目前没有其他相关工作的结果可供比较，在杂音等级较高的心音记录上模型性能更好，如图 5 所示。
 ![Stage1结果](/figure/Stage1Res.png)
+<div align='center'>
+  <font size=12>
+    图5 Stage1 结果示意图
+  </font>
+</div>
 
-<center>图5 Stage1 结果示意图</center>
-
-<br>
+<br/>
 
 b. Stage2 加权准确率达到 74.46%，Stage3 加权准确率达到 76.69%，接近当前 SOTA 水平。
 
 c. 方法多种输出结合心音分割网络的结果，可实现受试者心脏杂音检测的自动化，如图 6 所示，这是其他相关工作所不具备的。
 
-![最终结果](/figure/Diagnose.png)
+<div align='center'><img src=/figure/Diagnose.png width=80%></div>
+<div align='center'>
+  <font size=12>
+    图6 最终结果示意图
+  </font>
+</div>
 
-<center>图6 最终结果示意图</center>
-
-<br>
+<br/>
 &emsp;&emsp;图6中受试者的心脏杂音检测结果为：存在心脏杂音，杂音主要发生在AV、PV、TV听诊区，表现为收缩期杂音。可能存在二尖瓣关闭不全情况。
